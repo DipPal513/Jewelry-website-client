@@ -35,7 +35,7 @@ const Dashboard = () => {
             <ul style={{ listStyle: "none" }}>
               {user?.email && <button className = "btn btn-sm bg-danger text-white mb-3" onClick={handleLogOut}>LogOut</button>}
               <br />
-              <NavLink
+              {!admin &&<NavLink
                 to={`${url}/pay`}
                 style={{
                  
@@ -45,7 +45,7 @@ const Dashboard = () => {
                 className="text-uppercase"
               >
                 Pay
-              </NavLink>
+              </NavLink>}
               {!admin &&<>  <NavLink
                 to={`${url}/myOrder`}
                 style={{

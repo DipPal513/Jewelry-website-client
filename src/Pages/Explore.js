@@ -4,17 +4,17 @@ import useAuth from "../Hooks/useAuth";
 import Product from "./Product";
 
 const Explore = (props) => {
-  const [data, setData] = useState();
+  const [products, setProducts] = useState([]);
 
   const {admin,setIsLoading} = useAuth();
 
   useEffect(() => {
     fetch("https://murmuring-cove-28727.herokuapp.com/jewelries")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setProducts(data));
   }, []);
-  const _id = data?.map(d => d._id);
-  console.log(data)
+  const _id = products?.map(d => d._id);
+  console.log(products)
   const handleDelete = (id) => {
     setIsLoading(true);
     
@@ -27,9 +27,9 @@ const Explore = (props) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-             const remaining = data?.filter((d) => d._id !== id);
+             const remaining = products? products.filter((d) => d._id !== id) : [];
            
-             setData(remaining);
+             setProducts(remaining);
           }
         });
     }
@@ -38,7 +38,7 @@ const Explore = (props) => {
     <>
       <div className="container mt-5">
         <div className="row">
-          {data?.map(product => <Product key ={product._id} handleDelete={()=>handleDelete(product._id)} product={product}/>).slice(0,props.quantity)}
+          {products?.map(product => <Product key ={product._id} handleDelete={()=>handleDelete(product._id)} product={product}/>).slice(0,props.quantity)}
         </div>
       </div>
     </>
