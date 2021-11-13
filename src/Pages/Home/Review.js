@@ -8,7 +8,7 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-  console.log(reviews)
+
   var settings = {
     dots: true,
     infinite: false,
@@ -53,9 +53,9 @@ const Review = () => {
             {reviews.map((review) => (
               <>
               
-                <div class="card mx-3">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">{review.name}</h5>
+                <div className="card mx-3">
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{review.name}</h5>
 
                     <ReactStars
                       className="d-flex align-items-center justify-content-center"
@@ -67,7 +67,7 @@ const Review = () => {
                       color2={"#000"}
                     />
 
-                    <p class="card-text">{review.details}</p>
+                    <p className="card-text">{review.details}</p>
                   </div>
                 </div>
               </>

@@ -6,15 +6,11 @@ import { useHistory } from 'react-router';
 const Header = () => {
   const {user,logOut,admin} = useAuth();
   const history = useHistory();
-  const handleLogOut = () =>{
-    logOut();
-    alert('log out successfully');
-    history.push('/login');
-  }
+
   return (
     <Navbar bg="light" expand="lg">
     <Container>
-      <Navbar.Brand href="#"><img src = 'http://demo.themeforshop.com/html_jewelry/assets/images/logo.png'/></Navbar.Brand>
+      <Navbar.Brand href="#"><img src = 'https://www.kay.com/medias/kay-logo.svg?context=bWFzdGVyfGltYWdlc3w5NDY3fGltYWdlL3N2Zyt4bWx8aDc5L2g2MS8xMjQ2MDk3MDMxMTcxMC9rYXlfbG9nby5zdmd8NTRkYmFkODE5MjkwYmE2YzU0NjNjNDVmNTEzMjUzYjRiZTEwNjhhNGE1ODIwMDA4NWUwZGMxNjAyOGRlNjI3ZQ' className = 'w-50 img-fluid'/></Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -26,8 +22,8 @@ const Header = () => {
           <Nav.Link as={Link} to = '/explore'>Explore</Nav.Link>
           {user?.email ? <Nav.Link as={Link} to = '/dashboard'>Dashboard</Nav.Link> : ""}
         
-         {user?.email ? <p className = 'mt-2 mx-3'>Hey, {user.displayName}</p>:""}
-          {user?.email ? <><button className = "btn btn-sm bg-danger text-white" onClick={handleLogOut}>LogOut</button></> :   <><Nav.Link as={Link} to = '/registration'>Registration</Nav.Link> <Nav.Link as={Link} to = '/login'>Login</Nav.Link></>}
+         {user?.email ? <p className = 'mt-2 mx-3'>Hey, {user.displayName}</p>
+           :   <><Nav.Link as={Link} to = '/registration'>Registration</Nav.Link> <Nav.Link as={Link} to = '/login'>Login</Nav.Link></>}
           
          
         </Nav>

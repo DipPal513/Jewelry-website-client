@@ -37,15 +37,15 @@ const Purchase = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col-lg-6 mb-5">
-            <div class="card">
+            <div className="card">
               <img
-                class="card-img-top"
+                className="card-img-top"
                 src={item?.image}
                 alt="Card image cap"
               />
-              <div class="card-body">
-                <h5 class="card-title">{item?.title}</h5>
-                <p class="card-text">{item?.description}</p>
+              <div className="card-body">
+                <h5 className="card-title">{item?.title}</h5>
+                <p className="card-text">{item?.description}</p>
               </div>
             </div>
           </div>

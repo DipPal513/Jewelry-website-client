@@ -27,6 +27,7 @@ const useFirebase = () => {
         // save user to the database
         // saveUser(email, name, "POST");
         // send name to firebase after creation
+        setError('')
         saveUser(email, name, "POST");
         updateProfile(auth.currentUser, {
           displayName: name,
