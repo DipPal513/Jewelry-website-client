@@ -1,3 +1,8 @@
 .carousel-inner{
     height: 90vh;
 }
+@media screen and (max-width:750px){
+    .carousel-inner{
+        height:100%;
+    }
+}
